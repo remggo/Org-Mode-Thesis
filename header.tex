@@ -1,0 +1,98 @@
+\usepackage{sectsty}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage{tabu,booktabs}
+% Pakete für Titlepage
+\usepackage{xcolor}
+\usepackage[nonumberlist,acronym]{glossaries} % For seperate Acronym and
+                                              % Glossary Lists
+\setacronymstyle{long-short}
+%\usepackage{eso-pic,picture}
+%\usepackage[absolute]{textpos}
+
+% Color Definitions
+\definecolor{thi-blue}{RGB}{0, 90, 155} % Kapitelfarbe
+\definecolor{thi-green}{RGB}{150, 190, 0} 
+\definecolor{fpDarker}{RGB}{0, 55, 94} % Für TitlePage
+\definecolor{fpColor}{RGB}{0, 73, 125} % Für TitlePage
+
+% Geometry of the Page Layout
+\geometry
+{
+ left=2.5cm,   %linker Seitenrand
+ right=2.5cm,  %rechter Seitenrand
+ top=2.5cm,     %oben der Abstand
+ bottom=2.5cm   %Unten der Abstand
+}
+
+% Color Chapters, Sections and Subsections
+\chapterfont{\color{thi-blue}}
+\sectionfont{\color{thi-blue}}
+\subsectionfont{\color{thi-blue}}
+
+\newcommand\AtPageUpperRight[1]{\AtPageUpperLeft{%
+		\makebox[\paperwidth][r]{#1}}}
+
+% 1: Titel
+% 2: Name
+% 3: Studiengang
+% 4: Fakultät
+% 5: Ausgegeben-am
+% 6: Abgegeben-am
+% 7: Erstprüfer
+% 8: Zweitprüfer
+% 9: Art der Arbeit
+\def\THItitlepage#1#2#3#4#5#6#7#8#9{
+\begin{titlepage}
+\vspace*{4cm}
+\begin{tabu} to \textwidth {X[c]}
+	\toprule
+	\toprule[2pt]
+	\huge{\textsc{#1}}\\
+	\Large{\textsc{#9}}\\
+	\bottomrule[2pt]
+	\bottomrule
+\end{tabu}
+\\[3cm]
+\centering{
+\textsc{\Large #2}
+}
+\\[3cm]
+\begin{tabu} {>{\itshape}X[r] X[1.5]}
+  Master's Course & #3\\%
+  Faculty & #4\\%
+  Issued on & #5\\%
+  Submitted on & #6\\%
+  First examiner & #7\\%
+  Second examiner & #8\\%
+\end{tabu}
+\vfill
+\includegraphics[width=5cm]{./logos/thi_FEI_logo_wb_CMYK-eps-converted-to.pdf}
+
+\end{titlepage}
+}
+
+\newcommand{\mytitle}{
+\THItitlepage
+{Modern Parallelism Constructs on Real-Time Systems} % 1. Titel 
+{Remko van Wagensveld} % 2. Name
+{Applied Research in Engineering Sciences} % 3. Study Program 
+{Electrical Engineering and Information Technology} % 4. Faculty
+{20th June 2018} % 5. Issued on
+{1st of September 2018} % 6. Eingereicht
+{Prof. Dr. rer. nat. Ulrich Margull} % 7. Supervisor
+{Prof. Dr. rer. nat. Christian Facchi} % 8. Second Examiner
+{Master's Thesis}} % Work Category
+
+% -----------------------------------------------------------------------------------------------------------
+% HACKS
+% -----------------------------------------------------------------------------------------------------------
+% Fix glossaries in tabularx env. see: http://tex.stackexchange.com/questions/94885/glossaries-fail-to-expand-in-tabularx
+% \makeatletter
+% \def\foo#1\hbox#2#3!!{%
+%     \def\TX@trial##1{#1\hbox{\let\glsunset\@gobble#2}#3}%
+% }
+% \expandafter\foo\TX@trial{#1}!!
+% \makeatother
+% \endinput
+

@@ -1,0 +1,71 @@
+# Arara Keywords for compiling with Arara
+#+LATEX_HEADER: % arara: clean: {files : [README.log, README.aux, README.dvi, README.lof, README.lot, README.bit, README.idx, README.glo, README.bbl, README.bcf, README.ilg, README.toc, README.ind, README.out, README.blg, README.fdb_latexmk, README.fls, README.acn, README.acr, README.alg, README.glg, README.gls, README.glsdefs, README.ist, README.lol, README.run.xml, README.tdo]}
+#+LATEX_HEADER: % arara: pdflatex: {draft: on, shell: true}
+#+LATEX_HEADER: % arara: biber
+#+LATEX_HEADER: % arara: makeglossaries
+#+LATEX_HEADER: % arara: pdflatex: {draft: on, shell: true}
+#+LATEX_HEADER: % arara: pdflatex: {synctex: on, shell: true}
+#+LATEX_HEADER: % arara: clean: {files : [glossary.fdb_latexmk, glossary.aux, header.aux, header.fdb_latexmk, header.tex.aux, README.log, README.aux, README.dvi, README.lof, README.lot, README.bit, README.idx, README.glo, README.bbl, README.bcf, README.ilg, README.toc, README.ind, README.out, README.blg, README.fdb_latexmk, README.fls, README.acn, README.acr, README.alg, README.glg, README.gls, README.glsdefs, README.ist, README.lol, README.run.xml, README.tdo]}
+#+LaTeX_CLASS_OPTIONS: [a4paper, 12pt]
+#+LATEX_HEADER: \usepackage[citestyle=numeric-comp,bibstyle=numeric-comp,hyperref=true,backend=biber]{biblatex}
+#+LATEX_HEADER: \addbibresource{references.bib}
+#+LATEX_HEADER: \input{header}
+#+LATEX_HEADER: \makeglossaries
+#+LATEX_HEADER: \input{glossary}
+#+OPTIONS: tags:nil tex:t
+
+* What is this about?                                                :ignore:
+** Writing a thesis in Org-Mode                                       :notes:
+   This repository is a template for writing a Thesis in Org-Mode. The thesis is
+   exported to LaTeX and afterwards compiled. This file ~README.org~ contains
+   four Projects /notes/, /schedule/, /expose/, and /thesis/. They all compile
+   to different folders (see ~.dir-locals.el~, Projects compile to
+   ~./output/<project>/*.pdf~). 
+
+   When opening this file you will be asked to review the contents of
+   ~./.dir-locals.el~ and if you want to load them. 
+   
+
+* Schedule                                                           :ignore:
+** TODO Write README                                               :schedule:
+   SCHEDULED: <2018-03-05 Mo>
+   :PROPERTIES:
+   :Effort:   3d
+   :END:
+   DEADLINE: <2018-03-09 Fr>
+** TODO Push to Github                                             :schedule:
+   DEADLINE: <2018-03-11 So>
+
+* Expose                                                             :ignore:
+** Introduction                                                      :expose:
+   Org-Mode... 
+** Hypothesis                                                        :expose:
+   We are able to write a thesis with Org-Mode and the Publishing features.
+** References                                                        :expose:ignore:
+   \printbibliography
+   
+* Masterthesis                                                    :ignore:
+** Glossary                                                   :thesis:ignore:
+   \printglossaries
+** Introduction                                                      :thesis:
+
+   Lorem Ipsum Real-Time Systems
+*** My fancy subsection
+    Hello 
+*** Here I will test my Literature
+   Here I cite the IEEE Computer Science Report from 2014 cite:AlkhatibIEEECS2014.
+** Related Work                                                      :thesis:
+ Lorem Ipsum Real-Time Systems
+
+ LOREM IPSUM REAL-TIME Systems
+** Platform used                                                     :thesis:
+ Lorem Ipsum Real-Time Systems
+** Comparison                                                        :thesis:
+ Lorem Ipsum Real-Time Systems
+** Conclusion                                                        :thesis:
+ Lorem Ipsum Real-Time Systems cite:wagensveld_experiences_2017 
+** References                                                        :thesis:ignore:
+   \printbibliography
+
+* Footnotes
+
